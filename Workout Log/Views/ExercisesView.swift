@@ -11,6 +11,12 @@ struct ExercisesView: View {
     @Binding var exercises: [Exercise]
     
     @State var sortOption = ExerciseSortOption.alphabetical
+    @State var isPresentingNewExerciseView = false
+    
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
+    let saveAction: () -> Void
     
     var alphabeticalExericses: [Exercise] {
         exercises.sorted {
@@ -39,19 +45,35 @@ struct ExercisesView: View {
     }
     
     var body: some View {
-        VStack {
-            Picker("Sort by", selection: $sortOption) {
-                Text("A-Z").tag(ExerciseSortOption.alphabetical)
-                Text("Z-A").tag(ExerciseSortOption.reverseAlphabetical)
-                Text("Category").tag(ExerciseSortOption.type)
-            }.pickerStyle(.segmented)
-                .padding(.horizontal)
-            if (sortOption == .type) {
-                ExerciseCategoryListView(exercises: $exercises)
-            } else {
-                List(exerciseList) {exercise in
-                    Label(exercise.name, systemImage: exercise.category.icon)
+        NavigationStack {
+            VStack {
+                Picker("Sort by", selection: $sortOption) {
+                    Text("A-Z").tag(ExerciseSortOption.alphabetical)
+                    Text("Z-A").tag(ExerciseSortOption.reverseAlphabetical)
+                    Text("Category").tag(ExerciseSortOption.type)
+                }.pickerStyle(.segmented)
+                    .padding(.horizontal)
+                if (sortOption == .type) {
+                    ExerciseCategoryListView(exercises: $exercises)
+                } else {
+                    List(exerciseList) {exercise in
+                        Label(exercise.name, systemImage: exercise.category.icon)
+                    }
                 }
+            }
+            .navigationTitle("Exercises")
+            .toolbar {
+                Button(action: {
+                    isPresentingNewExerciseView = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $isPresentingNewExerciseView) {
+                AddExerciseView(isPresenting: $isPresentingNewExerciseView, exercises: $exercises)
+            }
+            .onChange(of: scenePhase) {phase in
+                if (phase == .inactive) { saveAction() }
             }
         }
     }
@@ -59,6 +81,6 @@ struct ExercisesView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisesView(exercises: .constant(Exercise.sampleExercises))
+        ExercisesView(exercises: .constant(Exercise.sampleExercises), saveAction: {})
     }
 }

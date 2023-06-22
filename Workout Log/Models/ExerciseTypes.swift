@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExcerciseType: String, CaseIterable {
+enum ExcerciseType: String, CaseIterable, Codable {
     case weightlifting
     case hiit
     case cardio

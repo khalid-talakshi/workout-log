@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Exercise: Identifiable {
+struct Exercise: Identifiable, Codable {
     var id: UUID
     var name: String
     var category: ExcerciseType
@@ -25,4 +25,8 @@ extension Exercise {
         Exercise(name: "Rope Pull", category: .hiit),
         Exercise(name: "Treadmill", category: .cardio)
     ]
+    
+    static var emptyExercise: Exercise {
+        Exercise(name: "", category: .weightlifting)
+    }
 }
