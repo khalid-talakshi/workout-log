@@ -11,7 +11,7 @@ import SwiftUI
 struct Workout_LogApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ExercisesView(exercises: .constant(Exercise.sampleExercises))
         }
     }
 }
