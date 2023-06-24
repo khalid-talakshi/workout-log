@@ -13,7 +13,7 @@ struct Workout_LogApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ExercisesView(exercises: $exerciseStore.exercises) {
+            RootView(exercises: $exerciseStore.exercises) {
                 Task {
                     try await exerciseStore.save(exercises: exerciseStore.exercises)
                 }

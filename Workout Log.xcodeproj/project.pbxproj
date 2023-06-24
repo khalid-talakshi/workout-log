@@ -18,6 +18,9 @@
 		85F8FEDD2A44BC3900F17AA3 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEDC2A44BC3900F17AA3 /* AddExerciseView.swift */; };
 		85F8FEDF2A44C63100F17AA3 /* ExerciseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEDE2A44C63100F17AA3 /* ExerciseFormView.swift */; };
 		85F8FEE12A44CC2E00F17AA3 /* ExerciseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEE02A44CC2E00F17AA3 /* ExerciseStore.swift */; };
+		85F8FEE32A44D12E00F17AA3 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEE22A44D12E00F17AA3 /* EditExerciseView.swift */; };
+		85F8FEE82A474EE700F17AA3 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEE72A474EE700F17AA3 /* ExerciseDetailView.swift */; };
+		85F8FEEA2A47588600F17AA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8FEE92A47588600F17AA3 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		85F8FEDC2A44BC3900F17AA3 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		85F8FEDE2A44C63100F17AA3 /* ExerciseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseFormView.swift; sourceTree = "<group>"; };
 		85F8FEE02A44CC2E00F17AA3 /* ExerciseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseStore.swift; sourceTree = "<group>"; };
+		85F8FEE22A44D12E00F17AA3 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		85F8FEE72A474EE700F17AA3 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
+		85F8FEE92A47588600F17AA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +71,8 @@
 		85F8FEC12A43788D00F17AA3 /* Workout Log */ = {
 			isa = PBXGroup;
 			children = (
-				85F8FED32A438B5300F17AA3 /* Models */,
 				85F8FEC22A43788D00F17AA3 /* Workout_LogApp.swift */,
+				85F8FED32A438B5300F17AA3 /* Models */,
 				85F8FED02A43791800F17AA3 /* Views */,
 				85F8FEC62A43788E00F17AA3 /* Assets.xcassets */,
 				85F8FEC82A43788E00F17AA3 /* Preview Content */,
@@ -89,6 +95,9 @@
 				85F8FEDA2A44B1D300F17AA3 /* ExerciseCategoryListView.swift */,
 				85F8FEDC2A44BC3900F17AA3 /* AddExerciseView.swift */,
 				85F8FEDE2A44C63100F17AA3 /* ExerciseFormView.swift */,
+				85F8FEE22A44D12E00F17AA3 /* EditExerciseView.swift */,
+				85F8FEE72A474EE700F17AA3 /* ExerciseDetailView.swift */,
+				85F8FEE92A47588600F17AA3 /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -96,12 +105,20 @@
 		85F8FED32A438B5300F17AA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				85F8FED42A438B6600F17AA3 /* ExerciseTypes.swift */,
+				85F8FEEB2A475A4F00F17AA3 /* Enums */,
 				85F8FED62A438BBF00F17AA3 /* Exercise.swift */,
-				85F8FED82A449E1E00F17AA3 /* ExericseSortOptions.swift */,
 				85F8FEE02A44CC2E00F17AA3 /* ExerciseStore.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		85F8FEEB2A475A4F00F17AA3 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				85F8FED42A438B6600F17AA3 /* ExerciseTypes.swift */,
+				85F8FED82A449E1E00F17AA3 /* ExericseSortOptions.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +193,14 @@
 			files = (
 				85F8FEDB2A44B1D300F17AA3 /* ExerciseCategoryListView.swift in Sources */,
 				85F8FEC52A43788D00F17AA3 /* ExercisesView.swift in Sources */,
+				85F8FEE32A44D12E00F17AA3 /* EditExerciseView.swift in Sources */,
 				85F8FEDF2A44C63100F17AA3 /* ExerciseFormView.swift in Sources */,
 				85F8FED72A438BBF00F17AA3 /* Exercise.swift in Sources */,
 				85F8FEDD2A44BC3900F17AA3 /* AddExerciseView.swift in Sources */,
 				85F8FED92A449E1E00F17AA3 /* ExericseSortOptions.swift in Sources */,
 				85F8FED52A438B6600F17AA3 /* ExerciseTypes.swift in Sources */,
+				85F8FEEA2A47588600F17AA3 /* RootView.swift in Sources */,
+				85F8FEE82A474EE700F17AA3 /* ExerciseDetailView.swift in Sources */,
 				85F8FEE12A44CC2E00F17AA3 /* ExerciseStore.swift in Sources */,
 				85F8FEC32A43788D00F17AA3 /* Workout_LogApp.swift in Sources */,
 			);

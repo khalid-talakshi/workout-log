@@ -10,18 +10,22 @@ import SwiftUI
 struct ExerciseCategoryListView: View {
     @Binding var exercises: [Exercise]
     
-    func filterList(category: ExcerciseType) -> [Exercise] {
-        return exercises.filter {
-            $0.category == category
+    func filterList(category: ExcerciseType) -> [Binding<Exercise>] {
+        return $exercises.filter {$exercise in
+            exercise.category == category
         }
     }
     
     var body: some View {
         List {
             ForEach(ExcerciseType.allCases, id: \.rawValue) {category in
-                Section(header: Text(category.name)) {
-                    ForEach(filterList(category: category)) { exercise in
-                        Label(exercise.name, systemImage: category.icon)
+                if (filterList(category: category).count > 0) {
+                    Section(header: Text(category.name)) {
+                        ForEach(filterList(category: category)) { $exercise in
+                            NavigationLink(destination: ExerciseDetailView(exercise: $exercise)) {
+                                Label(exercise.name, systemImage: category.icon)
+                            }
+                        }
                     }
                 }
             }
